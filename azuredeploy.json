@@ -43,7 +43,7 @@
     },
     "openAIModelDeploymentName": {
       "type": "string",
-      "defaultValue": "",
+      "defaultValue": "text-davinci-003",
       "metadata": {
         "description": "The deployment name for the Davinci-003 model used by this application"
       }

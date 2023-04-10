@@ -1,7 +1,7 @@
 param location string = resourceGroup().location
 
 @description('Name of the chat application. Needs to be unique for Cosmos DB, App Service and Open AI')
-param chatAppName string
+param chatAppName string = 'omicron'
 
 @description('OpenAI region')
 @allowed([
@@ -9,7 +9,7 @@ param chatAppName string
   'South Central US'
   'West Europe'
 ])
-param openAiRegion string = 'East US'
+param openAiRegion string = 'West Europe'
 
 @description('OpenAI SKU')
 @allowed([
@@ -18,7 +18,7 @@ param openAiRegion string = 'East US'
 param openAiSku string = 'S0'
 
 @description('The deployment name for the Davinci-003 model used by this application')
-param openAIModelDeploymentName string = ''
+param openAIModelDeploymentName string = 'text-davinci-003'
 
 @description('Specifies App Service Sku (F1 = Free Tier)')
 param appServicesSkuName string = 'F1'
@@ -36,7 +36,7 @@ var cosmosDBAccountName = '${chatAppName}-cosmos'
 var openAiAccountName = '${chatAppName}-openai'
 var hostingPlanName = '${chatAppName}-hostingplan'
 var webSiteName = '${chatAppName}-webapp'
-var webSiteRepository = 'https://github.com/teo-ma/cosmosdb-chatgpt.git'
+var webSiteRepository = 'https://github.com/humian1974/cosmosdb-chatgpt.git'
 var databaseName = 'ChatDatabase'
 var containerName = 'ChatContainer'
 var openAiMaxTokens = '3000'
